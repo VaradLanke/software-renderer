@@ -1,49 +1,56 @@
 # software-renderer
 
-A pure CPU-based 3D software renderer built from scratch in C. This project moves away from text-based terminal applications to explore low-level pixel manipulation, custom frame buffers, and graphics pipeline fundamentals.
+A C++ learning project exploring the fundamentals behind a CPU-based software renderer, with SDL3 used for windowing and display. It follows along with Gustavo Pezzi's [Master Low-Level Graphics in C: Build a Software Renderer from Scratch](https://www.freecodecamp.org/news/master-low-level-graphics-in-c-build-a-software-renderer-from-scratch/) tutorial.
 
-This repository follows the hands-on tutorial: **[Master Low-Level Graphics in C: Build a Software Renderer from Scratch](https://www.freecodecamp.org/news/master-low-level-graphics-in-c-build-a-software-renderer-from-scratch/)** by Gustavo Pezzi via freeCodeCamp.
+## Requirements
 
-## 🚀 Core Features & Concepts Learned
-* **Custom Frame Buffer:** Manually creating and managing a frame buffer in memory.
-* **Coordinate Mapping:** Mapping 2D screen coordinates into a 1D memory array.
-* **Low-Level Windowing:** Leveraging the cross-platform power of the **SDL3** library to open a window and handle OS events.
-* **Game Loop & Timing:** Controlling application execution and capping the frame rate for smooth 60 FPS rendering.
-* **CPU-Driven Effects:** Implementing the iconic, classic *Doom* fire effect entirely using CPU instructions.
+The included Makefile is configured for a Windows x64 build and requires:
 
-## 🛠️ Prerequisites & Dependencies
-To build and run this project, you will need:
-* A C compiler (like `gcc`, `clang`, or MSVC)
-* **SDL3** (Simple DirectMedia Layer 3) library installed on your system
-* **Windows:** the Windows 10 or 11 SDK, installed with the Visual Studio Installer (select the **Desktop development with C++** workload)
+- Visual Studio's C++ build tools, including the **Desktop development with C++** workload
+- GNU Make
+- The SDL3 development libraries for Visual C++ (x64)
 
-## 📦 Setup & Installation
+## Build and run on Windows
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/VaradLanke/software-renderer.git
-   cd software-renderer
+1. Install SDL3. Download the Visual C++ development archive from the [SDL releases page](https://github.com/libsdl-org/SDL/releases) and extract it. The Makefile defaults to:
+
+   ```text
+   C:/Program Files/SDL3/SDL3-3.4.16
    ```
 
-2. Install SDL3, compile, and run:
+   If your SDL3 directory is elsewhere, pass its path as `SDL3_DIR` when running Make.
 
-   **Windows** (using the Visual Studio Developer Command Prompt):
+2. Open a **Visual Studio Developer Command Prompt** and change to the project directory:
 
-   | Step | Instructions |
-   | --- | --- |
-   | Download SDL3 | Download `SDL3-devel-3.x.x-VC.zip` from the [SDL releases page](https://github.com/libsdl-org/SDL/releases). |
-   | Install SDL3 | Extract the files into `C:\Program Files\SDL3`. For SDL 3.4.16, add `C:\Program Files\SDL3\SDL3-3.4.16\lib\x64` to the Windows `Path` environment variable. Restart the command prompt after changing `Path`. |
-   | Compile | `cl.exe /EHsc main.cpp /I"C:\Program Files\SDL3\SDL3-3.4.16\include" /Fe:renderer.exe /link /LIBPATH:"C:\Program Files\SDL3\SDL3-3.4.16\lib\x64" SDL3.lib` |
-   | Run | `renderer.exe` |
+   ```bat
+   cd software-renderer\src\01_Simple_SDL_Window
+   ```
 
-   **Debian / Ubuntu**:
+3. Build and run:
 
-   | Step | Command |
-   | --- | --- |
-   | Install SDL3 | `sudo apt-get install libsdl3-dev` |
-   | Compile | `gcc -Wall -std=c99 src/main.c -o renderer -lSDL3` |
-   | Run | `./renderer` |
+   ```bat
+   make
+   make run
+   ```
 
-## 📚 Acknowledgments
-* Course Instructor: **Gustavo Pezzi**
-* Platform: **freeCodeCamp.org**
+   The build produces `renderer.exe`. If Windows cannot find `SDL3.dll` when launching it, add SDL3's `lib\x64` directory to `Path`.
+
+To use a non-default SDL3 installation:
+
+```bat
+make SDL3_DIR="C:/path/to/SDL3"
+```
+
+Remove generated files with:
+
+```bat
+make clean
+```
+
+## Learning goals
+
+As the project develops, it explores frame buffers, mapping screen coordinates to memory, game-loop timing, and CPU-rendered effects.
+
+## Acknowledgments
+
+- Tutorial by [Gustavo Pezzi](https://www.freecodecamp.org/news/master-low-level-graphics-in-c-build-a-software-renderer-from-scratch/), published by [freeCodeCamp](https://www.freecodecamp.org/)
