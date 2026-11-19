@@ -1,6 +1,6 @@
 # software-renderer
 
-A C++ learning project exploring the fundamentals behind a CPU-based software renderer, with SDL3 used for windowing and display. It follows along with Gustavo Pezzi's [Master Low-Level Graphics in C: Build a Software Renderer from Scratch](https://www.freecodecamp.org/news/master-low-level-graphics-in-c-build-a-software-renderer-from-scratch/) tutorial.
+A C++ learning project exploring the fundamentals behind a CPU-based software renderer, with SDL3 used for windowing and display.
 
 ## Requirements
 
@@ -51,6 +51,3 @@ make clean
 
 As the project develops, it explores frame buffers, mapping screen coordinates to memory, game-loop timing, and CPU-rendered effects.
 
-## Acknowledgments
-
-- Tutorial by [Gustavo Pezzi](https://www.freecodecamp.org/news/master-low-level-graphics-in-c-build-a-software-renderer-from-scratch/), published by [freeCodeCamp](https://www.freecodecamp.org/)
