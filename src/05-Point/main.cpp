@@ -110,7 +110,7 @@ void handleEvent(SDL_Event& event) {
 */
 void setPixel(int x/*Horizontal position*/, int y/*verical position*/, uint32_t color=0xff0000/*RED*/) {
 
-    if(x >= 0 && y >= 0 && x < WIDTH*HEIGHT && y < HEIGHT) {
+    if(x >= 0 && y >= 0 && x < WIDTH && y < HEIGHT) {
         
         //framebuffer[(y*WIDTH) + x] = color; // TOP-Left Origin
         
